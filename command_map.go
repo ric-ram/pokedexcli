@@ -5,8 +5,8 @@ import (
 	"fmt"
 )
 
-func callbackMap(cfg *config) error {
-	resp, err := cfg.pokeapiClient.ListLocaationAreas(cfg.nextLocationAreaURL)
+func callbackMap(cfg *config, args ...string) error {
+	resp, err := cfg.pokeapiClient.ListLocationAreas(cfg.nextLocationAreaURL)
 	if err != nil {
 		return err
 	}
@@ -20,12 +20,12 @@ func callbackMap(cfg *config) error {
 	return nil
 }
 
-func callbackMapb(cfg *config) error {
+func callbackMapb(cfg *config, args ...string) error {
 	if cfg.previousLocationAreaURL == nil {
 		return errors.New("you're on the first page")
 	}
 
-	resp, err := cfg.pokeapiClient.ListLocaationAreas(cfg.previousLocationAreaURL)
+	resp, err := cfg.pokeapiClient.ListLocationAreas(cfg.previousLocationAreaURL)
 	if err != nil {
 		return err
 	}
