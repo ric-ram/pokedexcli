@@ -8,7 +8,7 @@ import (
 
 func callbackCatch(cfg *config, args ...string) error {
 	if len(args) != 1 {
-		return errors.New("no location area provided")
+		return errors.New("no pokemon name provided")
 	}
 	pokemonName := args[0]
 
